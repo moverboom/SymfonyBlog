@@ -1,9 +1,9 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace PostBundle\Entity;
 
-use AuthenticationBundle\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
+use AuthenticationBundle\Entity\User;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

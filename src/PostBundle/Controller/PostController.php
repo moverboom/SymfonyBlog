@@ -8,10 +8,7 @@
 
 namespace PostBundle\Controller;
 
-use AppBundle\Entity\Post;
-use AuthenticationBundle\Entity\User;
-use AuthenticationBundle\Form\UserType;
-use Symfony\Component\HttpFoundation\Request;
+use PostBundle\Entity\Post;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 

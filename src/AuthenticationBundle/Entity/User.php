@@ -2,9 +2,9 @@
 
 namespace AuthenticationBundle\Entity;
 
-use AppBundle\Entity\Post;
-use Doctrine\Common\Collections\ArrayCollection;
+use PostBundle\Entity\Post;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -51,7 +51,7 @@ class User implements UserInterface, \Serializable
     private $isActive;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Post", mappedBy="author")
+     * @ORM\OneToMany(targetEntity="PostBundle\Entity\Post", mappedBy="author")
      */
     private $posts;
 
