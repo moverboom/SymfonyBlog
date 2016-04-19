@@ -1,4 +1,4 @@
-blog_symfony
-============
-
-A Symfony project created on April 19, 2016, 11:38 am.
+###blog_symfony
+---
+#####A simple blog website to test the Symfony framework and see the differences between Laravel and Symfony 
+[Laravel version(finished)](https://github.com/moverboom/LaravelBlog)
