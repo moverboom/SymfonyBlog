@@ -2,6 +2,8 @@
 
 namespace AuthenticationBundle\Entity;
 
+use AppBundle\Entity\Post;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -18,7 +20,7 @@ class User implements UserInterface, \Serializable
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
@@ -48,11 +50,21 @@ class User implements UserInterface, \Serializable
      */
     private $isActive;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Post", mappedBy="author")
+     */
+    private $posts;
+
     public function __construct()
     {
         $this->isActive = true;
+        $this->posts = new ArrayCollection();
         // may not be needed, see section on salt below
         // $this->salt = md5(uniqid(null, true));
+    }
+
+    public function getId() {
+        return $this->id;
     }
 
     public function getUsername()
@@ -95,6 +107,14 @@ class User implements UserInterface, \Serializable
     public function setPassword($password)
     {
         $this->password = $password;
+    }
+
+    public function getPosts() {
+        return $this->posts;
+    }
+
+    public function addPost(Post $post) {
+        $posts[] = $post;
     }
 
     public function getSalt()

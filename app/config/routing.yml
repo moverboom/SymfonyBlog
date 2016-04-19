@@ -3,11 +3,12 @@ authentication:
     type:     annotation
     prefix:   /
 
+post:
+  resource: "@PostBundle/Controller/"
+  type: annotation
+
 app:
     resource: "@AppBundle/Controller/"
-    type:     annotation
-
-    resource: "@SecurityBundle/Controller/"
     type:     annotation
 
 logout:

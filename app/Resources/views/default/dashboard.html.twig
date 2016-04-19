@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="panel">
+        <div class="panel-heading lead">
+            Recent Posts
+        </div>
+        <div class="panel-body">
+            {% if(posts is defined and posts is iterable) %}
+                <ul class="list-group">
+                    {% for post in posts %}
+                        <li class="list-group-item">
+                            <div class="lead">{{ post.title }}</div>
+                            <div>{{ post.content }}</div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
