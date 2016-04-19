@@ -1,3 +1,14 @@
+authentication:
+    resource: "@AuthenticationBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+    resource: "@SecurityBundle/Controller/"
+    type:     annotation
+
+logout:
+    path: /logout

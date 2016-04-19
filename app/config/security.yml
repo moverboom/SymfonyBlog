@@ -1,11 +1,19 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/book/security.html
 security:
+    encoders:
+        AuthenticationBundle\Entity\User:
+            algorithm: bcrypt
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         in_memory:
             memory: ~
+        user_db_provider:
+            entity:
+                class: AuthenticationBundle:User
+                # if you're using multiple entity managers
+                # manager_name: customer
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -16,6 +24,18 @@ security:
         main:
             anonymous: ~
             # activate different ways to authenticate
+            form_login:
+                login_path: login
+                check_path: login
+            logout:
+                            path: /logout
+                            target: /login
+            pattern:    ^/
+            http_basic: ~
+            provider: user_db_provider
+        default:
+            anonymous: ~
+            http_basic: ~
 
             # http_basic: ~
             # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
