@@ -29,14 +29,7 @@ class HomeController extends Controller
     public function dashboardAction() {
         $this->denyAccessUnlessGranted('ROLE_USER');
                      
-        $posts = [];
-        
-        for($i = 0; $i < 10; $i++) {
-            $post = new Post();
-            $post->setTitle("Post {$i}");
-            $post->setContent("Test content for Post {$i}");
-            $posts[] = $post;
-        }
+        $posts = $this->getDoctrine()->getRepository('PostBundle:Post')->findAll();
         
         return $this->render('default/dashboard.html.twig', array(
             'posts' => $posts

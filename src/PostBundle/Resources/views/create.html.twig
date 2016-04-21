@@ -1,5 +1,24 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    TEst
+    {{ form_start(form) }}
+
+    <div class="text-danger">
+        {{ form_errors(form) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.Title) }}
+        {{ form_widget(form.Title) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.Content) }}
+        {{ form_widget(form.Content) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_widget(form.save) }}
+        {{ form_widget(form.draft) }}
+    </div>
+    {{ form_end(form) }}
 {% endblock %}

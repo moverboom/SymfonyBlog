@@ -44,14 +44,6 @@
         </nav>
 
         <div class="container">
-            {% if(errors is defined and errors is iterable) %}
-                <ul class="text-danger">
-                    {% for error in errors %}
-                        <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-
             {% block body %}{% endblock %}
         </div>
 

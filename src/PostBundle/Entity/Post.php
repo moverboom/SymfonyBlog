@@ -9,8 +9,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Post
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="PostBundle\Repository\PostRepository")
  * @ORM\Table(name="post")
+ *
  *
  * Class Post
  * @package AppBundle\Entity
@@ -27,14 +28,22 @@ class Post
     /**
      * @ORM\Column(type="string", length=100, unique=true)
      *
-     * @Assert\NotBlank()
+     * @Assert\Length(
+     *     min=5,
+     *     max=100,
+     *     minMessage="Title must be at leat {{ limit }} characters long",
+     *     maxMessage="Title can not be longer than {{ limit }} characters"
+     * )
      */
     private $title;
 
     /**
      * @ORM\Column(type="string")
      *
-     * @Assert\NotBlank()
+     * @Assert\Length(
+     *     min=25,
+     *     minMessage="Content must be at least {{ limit }} characters long"
+     * )
      */
     private $content;
 
