@@ -7,6 +7,10 @@ post:
   resource: "@PostBundle/Controller/"
   type: annotation
 
+user:
+  resource: "@UserBundle/Controller/"
+  type: annotation
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

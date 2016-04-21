@@ -1,8 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="lead">Home</div>
-    {% if(is_granted('IS_AUTHENTICATED_FULLY')) %}
-        {{ app.user.username }}
-    {% endif %}
+    <div class="jumbotron">
+        <h1 class="display-3">Welcome</h1>
+        <p class="lead">This is a simple blog website to test the Symfony framework</p>
+        <hr class="m-y-2">
+        <p>Register now to Test it!</p>
+        <p class="lead">
+            <a class="btn btn-primary" href="{{ url('user_registration') }}" role="button">Register</a>
+            <a class="btn btn-default" href="{{ url('login') }}" role="button">Login</a>
+        </p>
+    </div>
 {% endblock %}
