@@ -14,7 +14,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  *
  * Class Post
- * @package AppBundle\Entity
  */
 class Post
 {
