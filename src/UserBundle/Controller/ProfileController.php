@@ -8,7 +8,6 @@
 
 namespace UserBundle\Controller;
 
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -23,7 +22,7 @@ class ProfileController extends Controller
     public function profileAction($username) {
         $this->denyAccessUnlessGranted('ROLE_USER');
 
-        $user = $this->getDoctrine()->getManager()->getRepository('AuthenticationBundle:User')->loadUserByUsername($username);
+        $user = $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->loadUserByUsername($username);
 
         return $this->render('@User/profile.html.twig',
             array('user' => $user));

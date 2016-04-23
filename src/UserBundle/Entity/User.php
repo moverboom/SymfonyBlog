@@ -1,6 +1,6 @@
 <?php
 
-namespace AuthenticationBundle\Entity;
+namespace UserBundle\Entity;
 
 use PostBundle\Entity\Post;
 use Doctrine\ORM\Mapping as ORM;
@@ -12,7 +12,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * User
  *
  * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="AuthenticationBundle\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="UserBundle\Repository\UserRepository")
  */
 class User implements UserInterface, \Serializable
 {

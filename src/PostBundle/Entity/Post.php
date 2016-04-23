@@ -2,8 +2,8 @@
 
 namespace PostBundle\Entity;
 
+use UserBundle\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
-use AuthenticationBundle\Entity\User;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -47,7 +47,7 @@ class Post
     private $content;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AuthenticationBundle\Entity\User", inversedBy="posts")
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="posts")
      */
     private $author;
 

@@ -1,10 +1,11 @@
 <?php
 
-namespace AuthenticationBundle\Repository;
+namespace UserBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;
+use UserBundle\Entity\User;
 
 /**
  * UserRepository
@@ -31,5 +32,18 @@ class UserRepository extends EntityRepository implements UserLoaderInterface
             ->setParameter('email', $username)
             ->getQuery()
             ->getOneOrNullResult();
+    }
+
+    public function isUserUnique(User $user) {
+        $user = $this->createQueryBuilder('u')
+            ->where('u.username = :username OR u.email = :email')
+            ->setParameter('username', $user->getUsername())
+            ->setParameter('email', $user->getEmail())
+            ->getQuery()->getOneOrNullResult();
+
+        if(!$user) {
+            return true;
+        }
+        return false;
     }
 }

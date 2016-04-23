@@ -6,8 +6,7 @@
  * Time: 13:32
  */
 
-namespace AuthenticationBundle\Controller;
-
+namespace UserBundle\Controller\Auth;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -28,7 +27,7 @@ class AuthenticationController extends Controller
         $lastUsername = $authenticationUtil->getLastUsername();
 
         return $this->render(
-            '@Authentication/login.html.twig',
+            '@User/auth/login.html.twig',
             array(
                 'last_username' => $lastUsername,
                 'error' => $error,
